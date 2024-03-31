@@ -1,0 +1,50 @@
+---
+# Source: demo-app/templates/demo-app-ns.yaml
+apiVersion: v1
+kind: Namespace
+metadata:
+  labels:
+    kubernetes.io/metadata.name: demo
+  name: demo
+spec:
+  finalizers:
+    - kubernetes
+---
+# Source: demo-app/templates/demo-configmap.yaml
+apiVersion: v1
+data:
+  fruit: apple
+kind: ConfigMap
+metadata:
+  name: demo-cm
+  namespace: demo
+---
+# Source: demo-app/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    run: demo
+  name: demo
+  namespace: demo
+spec:
+  ports:
+    - port: 80
+      protocol: TCP
+      targetPort: 80
+  selector:
+    run: demo
+  type: ClusterIP
+---
+# Source: demo-app/templates/pod.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: demo
+  name: demo
+  namespace: demo
+spec:
+  containers:
+    - image: nginx
+      name: demo

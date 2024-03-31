@@ -1,0 +1,7 @@
+apiVersion: v1
+data:
+  fruit: apple
+kind: ConfigMap
+metadata:
+  name: demo-cm
+  namespace: demo
