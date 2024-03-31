@@ -3,5 +3,5 @@ data:
   env: {{ .Values.env }}
 kind: ConfigMap
 metadata:
-  name: demo-cm
-  namespace: demo
+  name: demo
+  namespace: demo-{{.Values.env}}

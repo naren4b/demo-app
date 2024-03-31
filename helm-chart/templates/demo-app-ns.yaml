@@ -3,7 +3,7 @@ kind: Namespace
 metadata:
   labels:
     kubernetes.io/metadata.name: demo
-  name: demo
+  name: demo-{{.Values.env}}
 spec:
   finalizers:
     - kubernetes

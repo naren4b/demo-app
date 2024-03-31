@@ -4,7 +4,7 @@ metadata:
   labels:
     run: demo
   name: demo
-  namespace: demo
+  namespace: demo-{{.Values.env}}
 spec:
   ports:
     - port: 80
