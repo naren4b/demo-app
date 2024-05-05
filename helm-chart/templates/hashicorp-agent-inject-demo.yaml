@@ -1,7 +1,6 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  creationTimestamp: null
   labels:
     app: orgchart
   name: orgchart
@@ -10,18 +9,13 @@ spec:
   selector:
     matchLabels:
       app: orgchart
-  strategy: {}
   template:
     metadata:
-      # annotations:
-      #    vault.hashicorp.com/agent-inject: 'true'
-      #    vault.hashicorp.com/role: 'internal-app'
-      #    vault.hashicorp.com/agent-inject-secret-database-config.txt: 'internal/data/database/config'     
       creationTimestamp: null
       labels:
         app: orgchart
     spec:
       containers:
       - image: jweissig/app:0.0.1
+        imagePullPolicy: IfNotPresent
         name: app
-        
