@@ -4,4 +4,3 @@ data:
 kind: ConfigMap
 metadata:
   name: demo
-  namespace: demo-{{.Values.env}}

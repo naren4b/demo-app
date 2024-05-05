@@ -4,7 +4,6 @@ metadata:
   labels:
     run: demo
   name: demo
-  namespace: demo-{{.Values.env}}
 spec:
   containers:
     - image: nginx
