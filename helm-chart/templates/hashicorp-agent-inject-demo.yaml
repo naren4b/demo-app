@@ -7,25 +7,27 @@ metadata:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-   name: orgchart
-   labels:
-      app: orgchart
+  creationTimestamp: null
+  labels:
+    app: orgchart
+  name: orgchart
 spec:
-   selector:
-      matchLabels:
+  replicas: 1
+  selector:
+    matchLabels:
       app: orgchart
-   replicas: 1
-   template:
-      metadata:
+  strategy: {}
+  template:
+    metadata:
       annotations:
-         vault.hashicorp.com/agent-inject: "true"
-         vault.hashicorp.com/role: "internal-app"
-         vault.hashicorp.com/agent-inject-secret-database-config.txt: "internal/data/database/config"         
+         vault.hashicorp.com/agent-inject: 'true'
+         vault.hashicorp.com/role: 'internal-app'
+         vault.hashicorp.com/agent-inject-secret-database-config.txt: 'internal/data/database/config'     
+      creationTimestamp: null
       labels:
-         app: orgchart
-      spec:
-      serviceAccountName: internal-app
+        app: orgchart
+    spec:
       containers:
-         - name: orgchart
-            image: jweissig/app:0.0.1
----
+      - image: jweissig/app:0.0.1
+        name: app
+        
