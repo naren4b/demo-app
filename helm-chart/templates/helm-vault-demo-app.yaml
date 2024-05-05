@@ -5,6 +5,7 @@ metadata:
   labels:
     app: orgchart
   name: orgchart
+  namespace: demo-{{.Values.env}}
 spec:
   replicas: 1
   selector:
