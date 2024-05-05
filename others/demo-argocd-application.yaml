@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: demo
+  namespace: argocd
+spec:
+  destination:
+    namespace: default
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: helm-chart
+    repoURL: https://github.com/naren4b/demo-app.git
+    plugin:
+      name: argocd-vault-plugin-helm
+  syncPolicy:
+    automated: {}
