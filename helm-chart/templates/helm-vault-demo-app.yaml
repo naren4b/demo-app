@@ -1,3 +1,11 @@
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  creationTimestamp: null
+  name: internal-app
+  namespace: demo-{{.Values.env}}
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
